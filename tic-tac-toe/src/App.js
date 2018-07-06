@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import rootReducer from './reducers'
 
 class App extends React.Component {
     render(){
@@ -9,7 +12,6 @@ class App extends React.Component {
         );
     }
 }
-
 
 function Square(props) {
   return (
@@ -82,13 +84,6 @@ class Game extends React.Component {
       ]),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext
-    });
-  }
-
-  jumpTo(step) {
-    this.setState({
-      stepNumber: step,
-      xIsNext: (step % 2) === 0
     });
   }
 
